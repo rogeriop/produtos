@@ -15,7 +15,7 @@ class Produtos extends Component {
             <div className='col-md-10'>
                 <h1>Produtos</h1>
                 <Route exact path={match.url} component={ProdutosHome} />
-                <Route exact path={match.url+'/categoria/:cadId'} component={Categoria} />
+                <Route exact path={match.url+'/categoria/:catId'} component={Categoria} />
             </div>
         </div>
         )
