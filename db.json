@@ -1,5 +1,5 @@
 {
-  "produtos":[
+  "produtos": [
     {
       "id": 1,
       "produto": "Sabão Líquido",
@@ -15,10 +15,8 @@
       "produto": "Bolacha",
       "categoria": 2
     }
-
-
   ],
-  "categorias":[
+  "categorias": [
     {
       "id": 1,
       "categoria": "Limpeza"
@@ -26,6 +24,26 @@
     {
       "id": 2,
       "categoria": "Alimentos"
+    },
+    {
+      "categoria": "categorico",
+      "id": 3
+    },
+    {
+      "categoria": "Frios",
+      "id": 4
+    },
+    {
+      "categoria": "Carnes",
+      "id": 5
+    },
+    {
+      "categoria": "Horti-Fruti",
+      "id": 6
+    },
+    {
+      "categoria": "Padaria",
+      "id": 7
     }
   ]
 }
