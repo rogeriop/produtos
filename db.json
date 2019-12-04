@@ -26,10 +26,6 @@
       "categoria": "Alimentos"
     },
     {
-      "categoria": "categorico",
-      "id": 3
-    },
-    {
       "categoria": "Frios",
       "id": 4
     },
@@ -38,12 +34,8 @@
       "id": 5
     },
     {
-      "categoria": "Horti-Fruti",
+      "categoria": "Hortifruti",
       "id": 6
-    },
-    {
-      "categoria": "Padaria",
-      "id": 7
     }
   ]
 }
