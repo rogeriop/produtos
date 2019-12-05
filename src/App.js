@@ -15,6 +15,8 @@ class App extends Component {
     super(props)
 
     this.loadCategorias = this.loadCategorias.bind(this)
+    this.createCategoria = this.createCategoria.bind(this)
+    this.removeCategoria = this.removeCategoria.bind(this)
     this.state = {
       categorias: []
     }
@@ -28,7 +30,14 @@ class App extends Component {
       })
 
   }
-
+  removeCategoria(categoria){
+    this.props.api.deleteCategoria(categoria.id)
+        .then((res)=> this.loadCategorias())
+ }
+ createCategoria(categoria) {
+  this.props.api.createCategoria(categoria)
+    .then((res)=> this.loadCategorias())
+ }
   render () {
     return (
       <Router>
@@ -54,6 +63,8 @@ class App extends Component {
               return (<Produtos 
                 {...props}
                 loadCategorias={this.loadCategorias}
+                createCategoria={this.createCategoria}
+                removeCategoria={this.removeCategoria}
                 categorias={this.state.categorias} 
                 />)
             }
