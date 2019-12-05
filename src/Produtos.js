@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import ProdutosHome from './ProdutosHome'
 import Categoria from './Categoria'
-import Api from './Api'
+
 
 
 class Produtos extends Component {
@@ -16,25 +16,16 @@ class Produtos extends Component {
         }
         this.renderCategoria = this.renderCategoria.bind(this)
         this.handleNewCategoria = this.handleNewCategoria.bind(this)
-        this.loadCategorias = this.loadCategorias.bind(this)
-
-    }
-    loadCategorias() {
-      Api.loadCategorias()  
-        .then(res => {
-            this.setState({
-                categorias: res.data
-            })
-        })
+        //this.loadCategorias = this.loadCategorias.bind(this)
 
     }
     // componente montado na tela
     componentDidMount () {
-        this.loadCategorias()
+        //this.loadCategorias()
     }
     removeCategoria(categoria){
-        Api.deleteCategoria(categoria.id)
-            .then((res)=> this.loadCategorias())
+       // Api.deleteCategoria(categoria.id)
+       //     .then((res)=> this.loadCategorias())
     }
     renderCategoria(cat){
         return (

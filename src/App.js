@@ -11,6 +11,24 @@ import Sobre from './Sobre'
 import Produtos from './Produtos'
 
 class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.loadCategorias = this.loadCategorias.bind(this)
+    this.state = {
+      categorias: []
+    }
+  }
+  loadCategorias() {
+    this.props.api.loadCategorias()  
+      .then(res => {
+          this.setState({
+              categorias: res.data
+          })
+      })
+
+  }
+
   render () {
     return (
       <Router>
@@ -32,7 +50,14 @@ class App extends Component {
           <div className='container'>
             <Route exact path='/' component={Home} />
             <Route exact path='/sobre' component={Sobre} />
-            <Route path='/produtos' component={Produtos} />
+            <Route path='/produtos' render={(props) => {
+              return (<Produtos 
+                {...props}
+                loadCategorias={this.loadCategorias}
+                categorias={this.state.categorias} 
+                />)
+            }
+            } />
           </div>
         </div>
       </Router>
