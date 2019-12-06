@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 
 import ProdutosHome from './ProdutosHome'
+import ProdutosNovo from './ProdutosNovo'
 import Categoria from './Categoria'
 
 
@@ -109,10 +110,17 @@ class Produtos extends Component {
                         ref='categoria' 
                         placeholder='Nova categoria'/>
                 </div>
+                <Link to='/produtos/novo'>Novo produto</Link>
             </div>
-            <div className='col-md-10'>
+            <div className='col-md-9'>
                 <h1>Produtos</h1>
                 <Route exact path={match.url} component={ProdutosHome} />
+                <Route exact path={match.url+'/novo'} 
+                        render={(props) => {
+                            return <ProdutosNovo {...props}
+                                        categorias={categorias} 
+                                        createProduto={this.props.createProduto}/>
+                        }} />
                 <Route exact path={match.url+'/categoria/:catId'} component={Categoria} />
             </div>
         </div>
