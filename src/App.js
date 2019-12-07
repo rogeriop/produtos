@@ -46,7 +46,7 @@ class App extends Component {
     .then((res)=> this.loadCategorias())
  }
  createProduto(produto) {
-   this.props.api.createProduto(produto)
+   return this.props.api.createProduto(produto)
  }
   render () {
     return (
