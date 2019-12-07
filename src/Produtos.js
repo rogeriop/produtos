@@ -121,7 +121,16 @@ class Produtos extends Component {
                                         categorias={categorias} 
                                         createProduto={this.props.createProduto}/>
                         }} />
-                <Route exact path={match.url+'/categoria/:catId'} component={Categoria} />
+                <Route exact path={match.url+'/categoria/:catId'} 
+                    render={(props)=> {
+                        return <Categoria {...props}
+                                loadProdutos={this.props.loadProdutos} 
+                                loadCategoria={this.props.loadCategoria}
+                                produtos={this.props.produtos} 
+                                categoria={this.props.categoria} />
+                    }} />
+                    {JSON.stringify(this.props.categoria)}
+                    
             </div>
         </div>
         )

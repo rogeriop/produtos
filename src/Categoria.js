@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-
 
 class Categoria extends Component {
     constructor (props) {
@@ -8,25 +6,14 @@ class Categoria extends Component {
         this.loadData = this.loadData.bind(this)
         this.state = {
             produtos: [],
-            categoria: {}
+            categoria: {},
+            id: null
         }
     }
     loadData(id) {
-      axios
-        .get('http://localhost:3001/produtos?categoria='+id)
-        .then(res => {
-            this.setState({
-                produtos: res.data
-            })
-        })
-      axios
-        .get('http://localhost:3001/categorias/'+id)
-        .then(res => {
-            this.setState({
-                categoria: res.data
-            })
-        })
-    
+      this.setState({ id })
+      this.props.loadProdutos(id) 
+      this.props.loadCategoria(id) 
     }
     // quando o componente for montado
     componentDidMount() {
@@ -34,7 +21,9 @@ class Categoria extends Component {
         this.loadData(id)
     }
     componentWillReceiveProps(newProps) {
-        this.loadData(newProps.match.params.catId)
+        if(newProps.match.params.catId !== this.state.id) {
+            this.loadData(newProps.match.params.catId)
+        }
     }
     renderProduto(produto) {
         return (
@@ -44,10 +33,9 @@ class Categoria extends Component {
     render () {
         return (
             <div>
-                <h1>{this.state.categoria.categoria} </h1>
-                {this.state.produtos.map(this.renderProduto)}
-
-                </div>
+                <h1>{this.props.categoria.categoria}</h1>
+                {this.props.produtos.map(this.renderProduto)}
+            </div>
         )
     }
 }
