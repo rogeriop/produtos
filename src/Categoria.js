@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Categoria extends Component {
     constructor (props) {
@@ -34,7 +35,7 @@ class Categoria extends Component {
                     this.props.removeProduto(produto)
                         .then(res=> this.loadData(this.props.match.params.catId))
                 }}>Excluir</button>
-
+                <Link to={'/produtos/editar/'+produto.id}>Editar</Link>
             </p>
         )
     }

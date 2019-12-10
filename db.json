@@ -2,8 +2,8 @@
   "produtos": [
     {
       "id": 1,
-      "produto": "Sabão Líquido",
-      "categoria": 1
+      "produto": "Sabão Líquido da Aracy",
+      "categoria": "1"
     },
     {
       "id": 2,
@@ -24,6 +24,11 @@
       "produto": "Bandeja de ovos com 30 unidades",
       "categoria": "2",
       "id": 5
+    },
+    {
+      "id": 6,
+      "produto": "Iogurte danone de 300mls",
+      "categoria": "1"
     }
   ],
   "categorias": [

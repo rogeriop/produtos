@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom'
 
 import ProdutosHome from './ProdutosHome'
 import ProdutosNovo from './ProdutosNovo'
+import ProdutosEditar from './ProdutosEditar'
 import Categoria from './Categoria'
 
 
@@ -121,6 +122,15 @@ class Produtos extends Component {
                                         categorias={categorias} 
                                         createProduto={this.props.createProduto}/>
                         }} />
+                <Route path={match.url+'/editar/:id'} 
+                      render={(props) => {
+                          return <ProdutosEditar {...props}
+                                    categorias={categorias}
+                                    readProduto={this.props.readProduto}
+                                    editProduto={this.props.editProduto}
+                                />
+                      }}  
+                />
                 <Route exact path={match.url+'/categoria/:catId'} 
                     render={(props)=> {
                         return <Categoria {...props}

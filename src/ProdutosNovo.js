@@ -16,7 +16,7 @@ class Produtos extends Component {
         }
         this.props.createProduto(produto)
             .then(()=> this.setState({ redirect: '/produtos/categoria/'+produto.categoria}))
-        console.log(produto)
+        //console.log(produto)
     }    
     render (){
         const { categorias } = this.props

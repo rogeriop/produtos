@@ -9,10 +9,12 @@ const apis = {
     deleteCategoria: (id) => api.delete('categorias/'+id),
     createCategoria: (categoria) => api.post('categorias', categoria),
     editCategoria: (categoria) => api.put('categorias/'+categoria.id, categoria),
+
+    readProduto: (id) => api.get('produtos/'+id),
     createProduto: (produto) => api.post('produtos', produto),
     loadProdutos: (categoria) => api.get('produtos?categoria='+categoria),
-    deleteProduto: (id) => api.delete('produtos/'+id)
-
+    deleteProduto: (id) => api.delete('produtos/'+id),
+    editProduto: (produto) => api.put('produtos/'+produto.id, produto)
 
 
 }
