@@ -127,10 +127,9 @@ class Produtos extends Component {
                                 loadProdutos={this.props.loadProdutos} 
                                 loadCategoria={this.props.loadCategoria}
                                 produtos={this.props.produtos} 
-                                categoria={this.props.categoria} />
+                                categoria={this.props.categoria} 
+                                removeProduto={this.props.removeProduto}/>
                     }} />
-                    {JSON.stringify(this.props.categoria)}
-                    
             </div>
         </div>
         )

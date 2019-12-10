@@ -9,6 +9,7 @@ class Categoria extends Component {
             categoria: {},
             id: null
         }
+        this.renderProduto = this.renderProduto.bind(this)
     }
     loadData(id) {
       this.setState({ id })
@@ -27,10 +28,20 @@ class Categoria extends Component {
     }
     renderProduto(produto) {
         return (
-            <p className='well' key={produto.id}>{produto.produto}</p>
+            <p className='well' key={produto.id}>
+                {produto.produto}
+                <button onClick={() => {
+                    this.props.removeProduto(produto)
+                        .then(res=> this.loadData(this.props.match.params.catId))
+                }}>Excluir</button>
+
+            </p>
         )
     }
     render () {
+        if(!this.props.categoria){
+            return <p>Loading...</p>
+        }
         return (
             <div>
                 <h1>{this.props.categoria.categoria}</h1>
